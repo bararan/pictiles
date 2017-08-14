@@ -1,0 +1,42 @@
+include ./partials/header.pug
+
+block content
+    div(id="tiles" class="grid")
+        each pic in pics
+            div(class="grid-item")
+                img(class="pic-view" src=pic.url)
+                if (pic.users.indexOf(user._id) > -1)
+                    form(method="POST")
+                        input(class="hidden" value=pic.id)
+                        button(type="submit" class="btn btn-transparent" formaction="/pin")
+                            span(class="glyphicon glyphicon-pushpin" id="pin-" + pic._id)
+                            label(for="pin-" + pic._id) #{pic.users.length}
+                else
+                    form(method="POST")
+                        input(class="hidden" value=pic.id)
+                        button(type="submit" class="btn btn-transparent" formaction="/unpin")
+                            span(class="glyphicon glyphicon-ban-circle" id="unpin-" + pic._id)
+                            label(for="unpin-" + pic._id) #{pic.users.length}
+                div by
+                    a(class="owner-profile" href="/user/" + pic.postedBy target="_blank") pic.postedBy
+        if user
+            div(class="grid-item")
+                button(class="btn btn-transparent btn-add" onclick="showForm()")
+                    h3 Add New Pic
+                    i(class="glyphicon glyphicon-plus-sign")
+        div(id="add-form" class="hidden")
+            div(class="top-row")
+                button(id="dismiss" class="btn btn-transparent" onclick="hideForm()")
+                    span(class="glyphicon glyphicon-remove-circle")
+            form(method="POST" onsubmit="hideForm()")
+                input(type="text"
+                    class="form-control"
+                    name="imgUrl"
+                    placeholder="image URL"
+                    oninvalid="this.setCustomValidity('Please enter a valid image URL.')"
+                    oninput="setCustomValidity('')"
+                    required)
+    
+
+
+            

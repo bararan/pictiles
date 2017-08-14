@@ -1,0 +1,33 @@
+{
+  "name": "pictiles",
+  "version": "1.0.0",
+  "description": "Simple pinterest clone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bararan/pictiles.git"
+  },
+  "author": "bararan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bararan/pictiles/issues"
+  },
+  "homepage": "https://github.com/bararan/pictiles#readme",
+  "dependencies": {
+    "body-parser": "1.17.2",
+    "connect-flash": "0.1.1",
+    "connect-mongo": "1.3.2",
+    "dotenv": "4.0.0",
+    "express": "4.15.3",
+    "express-session": "1.15.5",
+    "mongodb": "2.2.30",
+    "passport": "0.3.2",
+    "passport-twitter": "1.0.4",
+    "path": "0.12.7",
+    "pug": "2.0.0-rc.3",
+    "socket.io": "2.0.3"
+  }
+}
