@@ -5,7 +5,7 @@ html
         script(src="/socket.io/socket.io.js")
         script(src="../scripts/bodyScripts.js")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js")
-        script(src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.0/masonry.pkgd.min.js")
+        //- script(src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js")
         link(
             rel="stylesheet" 
             href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
@@ -22,13 +22,13 @@ html
         )
 
     body
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/waterfall.js/1.1.0/waterfall.min.js")
         navigation
             nav(id="top-navbar" class="navbar navbar-fixed-top")
                 div(id="navbar-container" class="container-fluid")
                     a(href="/") Main
                     if user
-                        a(href="/profile" target="_self") Profile
-                        a(href="/requests" target="_self") Requests
+                        a(href="/user/" + user.userName  target="_self") My Board
                         a(id="logout" class="loginout" href="/logout" target="_self") Log Out
                     else
                         a(id="logout" class="loginout" href="/auth/twitter" target="_self") Log in with Twitter

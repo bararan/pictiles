@@ -1,0 +1,30 @@
+
+//- div(id="tiles" class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 20%, percentPosition: true, gutter: 2px }')
+div(id="tiles" class="waterfall")
+    //- div(class="grid-sizer")
+    each pic in pics  
+        div(class="item")
+            img(class="pic-view" src=pic.imgUrl)
+            if (user && pic.postedBy !== user.userName)
+                -let formAction = "";
+                -let iconClass = "";
+                if (pic.pinnedBy.indexOf(user._id) < 0)
+                    -formAction = "/pin"
+                    -iconClass = "glyphicon-pushpin"
+                else
+                    -formAction = "/unpin"
+                    -iconClass = "glyphicon-ban-circle"
+                form(class="overlay top" method="POST")
+                    input(class="hidden" name="pictureID" value=pic._id)
+                    button(type="submit" class="btn btn-transparent" formaction=formAction)
+                        span(class="glyphicon " + iconClass id="pin-" + pic._id)
+                        label(for="pin-" + pic._id) #{pic.pinnedBy.length}
+            div(class="overlay bottom")
+                div #{pic.title}
+                div by 
+                    a(class="owner-profile" href="/user/" + pic.postedBy target="_self") #{pic.postedBy}
+    if addEnabled
+        div(class="item add-container")
+            button(class="btn btn-transparent btn-add" onclick="showForm()")
+                h3 Add New Pic
+                i(class="glyphicon glyphicon-plus-sign")

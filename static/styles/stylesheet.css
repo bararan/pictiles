@@ -4,6 +4,11 @@ html {
 body {
     display: flex;
     justify-content: center;
+    background: #3A3531;
+}
+
+* { 
+    box-sizing: border-box;
 }
 
 .loginout {
@@ -18,16 +23,61 @@ body {
     opacity: 0.3;
 }
 
-.grid {
+.waterfall {
+    margin-top: 5%;
     width: 95%;
 }
 
-.grid-item {
-    width: 18%;
-    height: 18%;
-    max-height: 30%;
-    display: flex;
-    justify-content: center;
+/* .grid:after {
+    content: '';
+    display: block;
+    clear: both;
+  } */
+
+.item{
+    width: 20%;
+    height: auto;
+    float: left;
+    background: yellowgreen;
+    border-radius: 8px;
+    margin: 2px;
+}
+
+.pic-view {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-radius: 8px;
+}
+
+.add-container {
+    height: 240px;
+}
+
+.overlay {
+    background: none;
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+    color: white;
+    text-shadow: #3A3531 1.5px 0.5px;
+    font-size: 1.25em;
+    text-align: center;
+}
+
+.overlay a {
+    color: #826966;
+}
+
+.bottom {
+    bottom: 0px;
+}
+
+.top {
+    width: auto;
+    height: auto;
+    top: 0px;
+    right: 0px;
 }
 
 .btn-transparent {
@@ -41,24 +91,90 @@ body {
     background: yellowgreen;
 }
 
+.btn-submit {
+    background: #3A3531;
+    color: yellowgreen;
+    font-weight: bold;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
 .glyphicon-plus-sign {
     font-size: 2.875rem;
 }
 
 #add-form {
     display: flex;
+    flex-direction: column;
     position: absolute;
     z-index: 3;
-    width: 25%;
-    height: 40%;
+    width: 30%;
+    height: 35%;
     top: 15%;
-    left: 37.5%;
+    left: 35%;
     background: yellowgreen;
+    border-radius: 8px;
+    opacity: 1.0;
+}
+
+#dismiss {
+    padding: 2px;
+}
+
+#dismiss .glyphicon {
+    font-size: 2.875rem;
+}
+
+#new-pic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90%;
+}
+
+.input-group {
+    width: 100%;
+    border-bottom: 2px solid #3A3531;
+}
+
+.form-control {
+    background: yellowgreen;
+    color: #3A3531;
+    outline: none !important;
+    border: none !important;
+    box-shadow: none;
+    font-weight: bold;
+}
+
+.form-control::placeholder {
+    color: #3A3531;
+    opacity: 0.55;
+}
+
+label {
+    background: yellowgreen !important;
+    border: none !important;
+    font-weight: bold !important;
+    color: #3A3531 !important;
+    width: 35% !important;
+    text-align: left !important;
+}
+
+.glyphicon-pushpin, .glyphicon-ban-circle {
+    color: white !important;
+    text-shadow: #3A3531 1.5px 1.5px;
+}
+
+button label {
+    background: none !important;
+    border: none !important;
+    text-align: left !important;
+    color: white !important;
+    text-shadow: #3A3531 1.5px 1.5px;
 }
 
 .top-row {
     display: flex;
-    height: 2rem;
     width: 100%;
     justify-content: flex-end;
 }

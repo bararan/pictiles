@@ -1,0 +1,27 @@
+div(id="add-form" class="hidden")
+    div(class="top-row")
+        button(id="dismiss" class="btn btn-transparent" onclick="hideForm()")
+            span(class="glyphicon glyphicon-remove-circle")
+    div(class="container-fluid")
+        form(id="new-pic" method="POST" onsubmit="hideForm()")
+            div(class="input-group")
+                label(class="input-group-addon" for="imgUrl") Image Address
+                input(type="text"
+                    class="form-control"
+                    name="imgUrl"
+                    id="imgUrl"
+                    placeholder="Paste image URL here"
+                    oninvalid="this.setCustomValidity('Please enter a valid image URL.')"
+                    oninput="setCustomValidity('')"
+                    required)
+            div(class="input-group")
+                label(class="input-group-addon" for="title") Title
+                input(type="text"
+                    class="form-control"
+                    name="title"
+                    id="title"
+                    placeholder="Title for your image"
+                    oninvalid="this.setCustomValidity('Please enter a valid image URL.')"
+                    oninput="setCustomValidity('')"
+                    required)
+            input(type="submit" class="btn btn-submit" formaction="/addphoto")

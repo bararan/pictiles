@@ -57,3 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
+# temporary files for testing purposes
+static/styles/stylesheet__.css
+views/test.pug
