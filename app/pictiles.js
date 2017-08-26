@@ -28,9 +28,10 @@ module.exports = (app, db, passport) => {
     app.get("/loggedIn", (req, res) => {
         res.redirect("/user/" + req.user.userName);
     })
-    //User's board (accessible to any authenticated user)
-    app.get("/user/:userName", isLoggedIn, (req, res) => {
+    //User's board (accessible to anyone)
+    app.get("/user/:userName", (req, res) => {
         const userName = req.params.userName;
+        const addEnabled = req.user ? req.user.userName === userName : false;
         db.collection("pictilesUsers").findOne({userName: userName}, {fields: {_id: 1, pics: 1}}, (err, user) => {
             if (err) return console.error(err);
             const uid = user._id;
@@ -39,7 +40,7 @@ module.exports = (app, db, passport) => {
                 .find({pinnedBy: {$in: [uid]}})
                 .toArray((err, pics) => {
                     if (err) console.error(err);
-                    return res.render("user", {pics: pics, user: req.user, addEnabled: req.user.userName === userName});
+                    return res.render("user", {pics: pics, user: req.user, addEnabled: addEnabled});
                 })
         })
     });

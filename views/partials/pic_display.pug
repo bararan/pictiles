@@ -1,10 +1,15 @@
 
-//- div(id="tiles" class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 20%, percentPosition: true, gutter: 2px }')
+//- div(id="tiles" class="waterfall" data-masonry='{ "itemSelector": ".item", "columnWidth": 20%, percentPosition: true, gutter: 2px }')
+//-     div(class="grid-sizer")
 div(id="tiles" class="waterfall")
-    //- div(class="grid-sizer")
+    if addEnabled
+        div(class="item add-container")
+            button(class="btn btn-transparent btn-add" onclick="showForm()")
+                h3 Add New Pic
+                i(class="glyphicon glyphicon-plus-sign")
     each pic in pics  
         div(class="item")
-            img(class="pic-view" src=pic.imgUrl)
+            img(class="pic-view" src=pic.imgUrl onerror="this.src='../images/default_img.png';")
             if (user && pic.postedBy !== user.userName)
                 -let formAction = "";
                 -let iconClass = "";
@@ -23,8 +28,3 @@ div(id="tiles" class="waterfall")
                 div #{pic.title}
                 div by 
                     a(class="owner-profile" href="/user/" + pic.postedBy target="_self") #{pic.postedBy}
-    if addEnabled
-        div(class="item add-container")
-            button(class="btn btn-transparent btn-add" onclick="showForm()")
-                h3 Add New Pic
-                i(class="glyphicon glyphicon-plus-sign")
