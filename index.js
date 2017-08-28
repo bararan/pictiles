@@ -58,7 +58,7 @@ dbClient.connect(url, (err, db) => {
         {
             consumerKey: process.env.TWITTER_KEY,
             consumerSecret: process.env.TWITTER_SECRET,
-            callbackURL: "http://localhost:5000/auth/twitter/callback"
+            callbackURL: "/auth/twitter/callback"
         },
         function(token, tokenSecret, profile, done) {
             db.collection("pictilesUsers").findOne({_id: profile.id}, function(err, user) {
