@@ -8,6 +8,21 @@ body {
     background: #3A3531;
 }
 
+nav {
+    height: 4rem;
+    background: #3A3531;
+}
+
+nav a {
+    color: #fff;
+    font-size: 2.25rem;
+    padding: 0.5rem;
+}
+
+nav a:hover, nav a:active {
+    color: #826966;
+}
+
 .loginout {
     float: right;
 }
@@ -23,16 +38,15 @@ body {
 .waterfall {
     margin-top: 5%;
     width: 95%;
-    margin-left: auto;
 }
 
 .item{
-    width: 16.5%;
-    height: auto;
+    width: 19%;
+    /* height: auto; */
     /* float: left; */
-    background: yellowgreen;
+    background: none;
     border-radius: 8px;
-    margin: 2px;
+    padding: none;
 }
 
 .pic-view {
@@ -75,6 +89,10 @@ body {
 .btn-transparent {
     border: none;
     background: none;
+}
+
+.disabled {
+    pointer-events: none;
 }
 
 .btn-add {

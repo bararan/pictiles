@@ -4,7 +4,7 @@ html
         title PicTiles
         script(src="/socket.io/socket.io.js")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js")
-        script(src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/waterfall.js/1.1.0/waterfall.min.js")
         link(
             rel="stylesheet" 
             href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
@@ -32,5 +32,4 @@ html
                         a(id="logout" class="loginout" href="/auth/twitter" target="_self") Log in with Twitter
 
         block content
-        script(src="https://cdnjs.cloudflare.com/ajax/libs/waterfall.js/1.1.0/waterfall.min.js")
         script(src="../scripts/bodyScripts.js")

@@ -10,20 +10,23 @@ div(id="tiles" class="waterfall")
     each pic in pics  
         div(class="item")
             img(class="pic-view" src=pic.imgUrl onerror="this.src='../images/default_img.png';")
-            if (user && pic.postedBy !== user.userName)
-                -let formAction = "";
-                -let iconClass = "";
-                if (pic.pinnedBy.indexOf(user._id) < 0)
-                    -formAction = "/pin"
-                    -iconClass = "glyphicon-pushpin"
-                else
-                    -formAction = "/unpin"
-                    -iconClass = "glyphicon-ban-circle"
-                form(class="overlay top" method="POST")
-                    input(class="hidden" name="pictureID" value=pic._id)
-                    button(type="submit" class="btn btn-transparent" formaction=formAction)
-                        span(class="glyphicon " + iconClass id="pin-" + pic._id)
-                        label(for="pin-" + pic._id) #{pic.pinnedBy.length}
+            -let formAction = "";
+            -let iconClass = "glyphicon-pushpin";
+            -let btnClass = " disabled"
+            if (pic.postedBy === user.userName)
+                -btnClass = " disabled"
+            else if (user && pic.pinnedBy.indexOf(user._id) < 0)
+                -formAction = "/pin"
+                -btnClass = ""
+            else if (user)
+                -formAction = "/unpin"
+                -iconClass = "glyphicon-ban-circle"
+                -btnClass = ""
+            form(class="overlay top" method="POST")
+                input(class="hidden" name="pictureID" value=pic._id)
+                button(type="submit" class="btn btn-transparent" + btnClass formaction=formAction)
+                    span(class="glyphicon " + iconClass id="pin-" + pic._id)
+                    label(for="pin-" + pic._id) #{pic.pinnedBy.length}
             div(class="overlay bottom")
                 div #{pic.title}
                 div by 

@@ -10,6 +10,9 @@ const isLoggedIn = (req, res, next) => {
 module.exports = (app, db, passport) => {
     /* GET routes */
     //Main page
+    app.get("/test",(req, res) => {
+        return res.render("test");
+    })
     app.get("/", (req, res) => {
         const user = req.user || false;
         db.collection("pictiles").find().toArray((err, pics) => {

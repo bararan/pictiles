@@ -12,6 +12,7 @@ const createGrid = function() {
     let grid = document.querySelector(".waterfall");
     waterfall(grid);
 }
-imagesLoaded(document.querySelectorAll(".item"), () => {
+
+window.onload = () => {
     createGrid();
-})
+}
