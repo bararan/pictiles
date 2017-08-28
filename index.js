@@ -10,7 +10,7 @@ const express = require("express")
       , MongoStore = require("connect-mongo")(session)
       , path = require("path")
       , pug = require("pug")
-    //   , morgan = require("morgan")
+      , morgan = require("morgan")
       , passport = require("passport")
       , TwitterStrategy = require("passport-twitter").Strategy
       , flash = require("connect-flash")
@@ -44,7 +44,7 @@ dbClient.connect(url, (err, db) => {
     app.set("port", (process.env.PORT || 5000));
     app.use(
         express.static(path.join(__dirname, "static"))
-        // , morgan("error")
+        , morgan("error")
         , bodyParser.json()
         , bodyParser.urlencoded({extended: true})
         
