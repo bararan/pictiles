@@ -44,7 +44,7 @@ dbClient.connect(url, (err, db) => {
     app.set("port", (process.env.PORT || 5000));
     app.use(
         express.static(path.join(__dirname, "static"))
-        , morgan("dev")
+        , morgan("error")
         , bodyParser.json()
         , bodyParser.urlencoded({extended: true})
         
